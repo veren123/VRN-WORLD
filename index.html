@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VRN-WORLD</title>
+    <link rel="icon" href="VRN-WORLD.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-docx-js/0.3.1/html-docx.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Loading screen container -->
+    <div class="loading-container" id="loadingContainer">
+        <div class="loading-bar">
+            <div class="bar"></div>
+        </div>
+        <p>Meload All content...</p>
+    </div>
+    
+    <div class="container" id="mainContainer">
+        <h1>VRN World 🎖️</h1>
+        <p style="text-align: center;">version:PRO 4.0</p>
+        <div class="navbar">
+            <div class="toolbar">
+                <button onclick="formatText('justifyLeft')">Left</button>
+                <button onclick="formatText('justifyCenter')">Center</button>
+                <button onclick="formatText('justifyRight')">Right</button>
+                <button onclick="formatText('justifyFull')">Justify</button>
+                <button onclick="formatText('strikeThrough')"><s>S</s></button>
+                <button onclick="formatText('insertOrderedList')">OL</button>
+                <button onclick="formatText('insertUnorderedList')">UL</button>
+                <button onclick="formatText('bold')"><b>B</b></button>
+                <button onclick="formatText('italic')"><i>I</i></button>
+                <button onclick="formatText('underline')"><u>U</u></button>
+                <button onclick="document.getElementById('imageInput').click()">Insert Image</button>
+                <button onclick="insertTable()">Insert Table</button>
+            </div>
+            <div class="toolbar">
+                <!-- Dropdown untuk memilih jenis font -->
+                <select data-command="fontName" onchange="formatText('fontName', this.value)">
+                    <option value="Arial">Arial</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Verdana">Verdana</option>
+                </select>
+                <!-- Dropdown untuk memilih ukuran font -->
+                <select data-command="fontSize" onchange="formatText('fontSize', this.value)">
+                    <option value="1">8pt</option>
+                    <option value="2">10pt</option>
+                    <option value="3">12pt</option>
+                    <option value="4">14pt</option>
+                    <option value="5">18pt</option>
+                    <option value="6">24pt</option>
+                    <option value="7">36pt</option>
+                </select>
+                <!-- Input untuk memilih warna font -->
+                <input type="color" data-command="foreColor" onchange="formatText('foreColor', this.value)">
+            </div>
+        </div>
+        <input type="file" id="imageInput" accept="image/*" onchange="insertLocalImage(event)">
+        <div id="editor" contenteditable="true" class="editor"></div>
+        <div class="buttons">
+            <button onclick="saveAsHTML()">Save as HTML</button>
+            <button onclick="saveAsPDF()">Save as PDF</button>
+            <button onclick="saveAsWord()">Save as Word</button>
+            <button onclick="saveAsExcel()">Save as Excel</button>
+        </div>
+    </div>
+
+    
+</body>
+</html>

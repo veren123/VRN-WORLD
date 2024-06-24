@@ -1,0 +1,146 @@
+  /* CSS untuk tampilan dasar body */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+/* CSS untuk container loading screen */
+.loading-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Background semi-transparan */
+    z-index: 1000; /* Tingkatkan z-index agar loading muncul di atas konten */
+}
+
+/* CSS untuk animasi loading seperti kecepatan siput */
+@keyframes siput {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.loading-bar {
+    width: 200px;
+    height: 4px;
+    background-color: #007bff;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.loading-bar .bar {
+    width: 100%;
+    height: 100%;
+    background-color: #0056b3;
+    animation: siput 2s linear infinite;
+}
+
+/* Mengatur tampilan untuk container */
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    display: none; /* Konten utama awalnya disembunyikan */
+}
+
+/* Mengatur tampilan untuk heading */
+h1 {
+    text-align: center;
+}
+
+/* Mengatur tampilan untuk toolbar */
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+/* Mengatur tampilan untuk tombol, select, dan input warna di toolbar */
+.toolbar button, .toolbar select, .toolbar input[type="color"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 2px;
+}
+
+/* Mengatur tampilan hover untuk tombol, select, dan input warna di toolbar */
+.toolbar button:hover, .toolbar select:hover, .toolbar input[type="color"]:hover {
+    background-color: #0056b3;
+}
+
+/* Mengatur padding untuk select dan input warna di toolbar */
+.toolbar select, .toolbar input[type="color"] {
+    padding: 8px 12px;
+}
+
+/* Mengatur tampilan untuk editor */
+.editor {
+    width: 100%;
+    height: 300px;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow-y: auto;
+}
+
+/* Mengatur tampilan untuk container tombol */
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Mengatur tampilan untuk tombol */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    flex: 1;
+    margin: 0 5px;
+}
+
+/* Mengatur tampilan hover untuk tombol */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Mengatur margin untuk tombol pertama dan terakhir */
+button:first-child, button:last-child {
+    margin: 0;
+}
+
+/* Menyembunyikan input file */
+#imageInput {
+    display: none;
+}
